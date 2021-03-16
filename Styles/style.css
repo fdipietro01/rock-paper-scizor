@@ -1,0 +1,227 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Barlow Semi Condensed;
+}
+
+:root {
+  --blue: linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+  --yellow: linear-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+  --red: linear-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+}
+
+.body {
+  background: linear-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.header {
+  margin: 35px 15px;
+  margin-bottom: 75px;
+}
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+.logo {
+  width: 75px;
+  padding: 15px;
+}
+.table {
+  border: 3px solid hsl(217, 16%, 45%);
+  border-radius: 7px;
+  margin: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.score {
+  background-color: hsl(216, 20%, 95%);
+  border-radius: 6px;
+  margin: 10px 10px;
+  padding: 5px 20px 15px 20px;
+  line-height: 27px;
+}
+
+.score-score {
+  color: hsl(229, 64%, 46%);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.score-number {
+  color: hsla(216, 12%, 25%, 0.952);
+  font-size: 40px;
+  font-weight: 800;
+  text-align: center;
+}
+.main {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 65px;
+  width: 100%;
+  background-image: url(../Assets/Images/bg-triangle.svg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 200px;
+}
+.main-sin-triangulo {
+  background-image: none;
+}
+.board {
+  height: 80%;
+}
+
+.linea1,
+.linea2 {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.ficha {
+  border-radius: 100%;
+  width: 125px;
+  height: 125px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 25px;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.ficha1:after,
+.ficha2:after,
+.ficha3:after {
+  content: "";
+  border-radius: 100%;
+  width: 125px;
+  height: 125px;
+  z-index: 2;
+  position: absolute;
+}
+.ficha1::after {
+  box-shadow: 0px 5px hsl(230, 67%, 44%);
+}
+
+.ficha2:after {
+  box-shadow: 0px 5px hsl(40, 86%, 45%);
+}
+
+.ficha3:after {
+  box-shadow: 0px 5px hsl(349, 65%, 43%);
+}
+
+/*hovers*/
+.ficha:hover {
+  background: hsl(229, 25%, 31%);
+}
+
+.ficha1 {
+  background: var(--blue);
+}
+
+.ficha1:hover .paper-container {
+  background: var(--blue);
+}
+
+.ficha1:hover .paper-container::after {
+  box-shadow: 0px -5px hsl(230, 67%, 44%);
+}
+
+.ficha2 {
+  background: var(--yellow);
+}
+
+.ficha2:hover .scizor-container {
+  background: var(--yellow);
+}
+.ficha2:hover .scizor-container::after {
+  box-shadow: 0px -5px hsl(40, 86%, 45%);
+}
+
+.ficha3 {
+  background: var(--red);
+}
+.ficha3:hover .rock-container {
+  background: var(--red);
+}
+.ficha3:hover .rock-container::after {
+  box-shadow: 0px -5px hsl(349, 65%, 43%);
+}
+
+.container {
+  border-radius: 100%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.container::after {
+  content: "";
+  box-shadow: 0px -5px rgb(203, 216, 235);
+  border-radius: 100%;
+  width: 88px;
+  height: 83px;
+  z-index: 2;
+  position: absolute;
+}
+
+/*padding que vuelve cuadradas a las imagenes"*/
+.paper-container {
+  padding: 14.5px 19.5px;
+}
+
+.scizor-container {
+  padding: 15px 18.5px;
+}
+
+.rock-container {
+  padding: 20px;
+}
+
+footer {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.rules {
+  border: 2px solid hsl(216, 9%, 79%);
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: hsl(213, 20%, 89%);
+  padding: 11px 38px;
+  letter-spacing: 2px;
+  margin-bottom: 70px;
+}
+
+.rules:hover {
+  color: hsl(229, 25%, 31%);
+  background-color: hsl(213, 20%, 89%);
+}
+
+.uknownChoice {
+  border-radius: 100%;
+  background-color: hsl(229, 25%, 31%);
+}
+
+.choice {
+  font-size: 12px;
+  font-weight: 600;
+  color: hsl(213, 20%, 89%);
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.div-container{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 170px;
+}
