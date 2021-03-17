@@ -5,6 +5,7 @@ const papel = document.getElementById("papel");
 const tijera = document.getElementById("tijera");
 const piedra = document.getElementById("piedra");
 const main = document.getElementById("main");
+const rules = document.getElementById("rules");
 papel.setAttribute("valor", "1");
 tijera.setAttribute("valor", "2");
 piedra.setAttribute("valor", "3");
@@ -62,7 +63,7 @@ function mostrarRandom(machineChoice) {
   const ficha = document.getElementById("cont1");
   setTimeout(function eliminar() {
     div.removeChild(eliminado);
-  }, 0900);
+  }, 0500);
   setTimeout(function insertar() {
     if (ficha.firstChild == machineChoice) {
       const clon = machineChoice.cloneNode(true);
@@ -70,7 +71,7 @@ function mostrarRandom(machineChoice) {
     } else {
       div.insertBefore(machineChoice, desc2);
     }
-  }, 0905);
+  }, 0505);
 }
 
 function quienGana(id, machineChoice) {
@@ -98,25 +99,74 @@ function quienGana(id, machineChoice) {
   ) {
     resultado = "perdiste";
   }
-  console.log(resultado);
+  return resultado;
+}
+
+function mostrarGanador(result) {
+  const score = document.getElementById("score");  
+  const div = document.getElementById("cont1");
+  const ficha = document.getElementById("cont2");
+  const cartel = document.createElement("p");
+  const cartel2 = document.createElement("p");
+  cartel.classList.add("cartel");
+  cartel2.classList.add("cartel2");
+  cartel2.textContent = "PLAY AGAIN";
+
+  setTimeout(function fijarcartel() {
+    if (result == "ganaste") {
+      cartel.textContent = "YOU WIN";
+      score.textContent = (parseInt(score.textContent) + 1);
+    div.classList.add("div-container2");
+    
+    }
+
+    if (result == "perdiste") {
+      cartel.textContent = "YOU LOSE";
+      score.textContent = (parseInt(score.textContent) - 1);
+    div.classList.add("div-container2");
+    }
+
+    if (result == "empate") {
+      cartel.textContent = "DRAW";
+      div.classList.add("div-container2");
+    }
+    
+    ficha.classList.add("div-container2");
+    linea1.appendChild(cartel);
+    linea1.appendChild(cartel2);
+  }, 0505);
 }
 
 papel.addEventListener("click", (e) => {
   mostrarEleccion(papel);
   const machineChoice = generarEleccionPc();
   mostrarRandom(machineChoice);
-  quienGana(papel, machineChoice);
+  const result = quienGana(papel, machineChoice);
+  mostrarGanador(result);
 });
 
 tijera.addEventListener("click", (e) => {
   mostrarEleccion(tijera);
   const machineChoice = generarEleccionPc();
   mostrarRandom(machineChoice);
-  quienGana(tijera, machineChoice);
+  const result = quienGana(tijera, machineChoice);
+  mostrarGanador(result);
 });
 piedra.addEventListener("click", (e) => {
   mostrarEleccion(piedra);
   const machineChoice = generarEleccionPc();
   mostrarRandom(machineChoice);
-  quienGana(piedra, machineChoice);
+  const result = quienGana(piedra, machineChoice);
+  mostrarGanador(result);
 });
+
+function crearModal(){}
+const fondo = document.createElement("div");
+    fondo.classList.add("modal")
+    const boton = document.createElement("p");
+    boton.classList.add("but-modal")
+    fondo.appendChild(boton);
+
+rules.addEventListener("click", (e)=>{
+    crearModal()
+})
