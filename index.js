@@ -9,6 +9,7 @@ const rules = document.getElementById("rules");
 papel.setAttribute("valor", "1");
 tijera.setAttribute("valor", "2");
 piedra.setAttribute("valor", "3");
+let playAgain;
 
 function mostrarEleccion(id) {
   board.removeChild(linea2);
@@ -111,6 +112,9 @@ function mostrarGanador(result) {
   cartel.classList.add("cartel");
   cartel2.classList.add("cartel2");
   cartel2.textContent = "PLAY AGAIN";
+  cartel2.setAttribute("id", "cartel2");
+  cartel.setAttribute("id", "cartel");
+  playAgain = cartel2;
 
   setTimeout(function fijarcartel() {
     if (result == "ganaste") {
@@ -122,7 +126,6 @@ function mostrarGanador(result) {
 
     if (result == "perdiste") {
       cartel.textContent = "YOU LOSE";
-      score.textContent = (parseInt(score.textContent) - 1);
     div.classList.add("div-container2");
     }
 
@@ -137,12 +140,27 @@ function mostrarGanador(result) {
   }, 0505);
 }
 
+function limpiarTablero(){
+  main.setAttribute("class", "main");
+  linea1.removeChild(cont1);
+  linea1.removeChild(cont2);
+  linea1.removeChild(cartel);
+  linea1.removeChild(cartel2);
+  linea1.appendChild(papel);
+  linea1.appendChild(tijera);
+  linea2.appendChild(piedra);
+  board.appendChild(linea2);
+}
+
 papel.addEventListener("click", (e) => {
   mostrarEleccion(papel);
   const machineChoice = generarEleccionPc();
   mostrarRandom(machineChoice);
   const result = quienGana(papel, machineChoice);
   mostrarGanador(result);
+  playAgain.addEventListener("click", (e)=>{
+    limpiarTablero();
+  })
 });
 
 tijera.addEventListener("click", (e) => {
@@ -151,22 +169,26 @@ tijera.addEventListener("click", (e) => {
   mostrarRandom(machineChoice);
   const result = quienGana(tijera, machineChoice);
   mostrarGanador(result);
+  playAgain.addEventListener("click", (e)=>{
+    limpiarTablero();
+    })
 });
+
 piedra.addEventListener("click", (e) => {
   mostrarEleccion(piedra);
   const machineChoice = generarEleccionPc();
   mostrarRandom(machineChoice);
   const result = quienGana(piedra, machineChoice);
   mostrarGanador(result);
+  playAgain.addEventListener("click", (e)=>{
+    limpiarTablero();
+  })
 });
 
-function crearModal(){}
+function crearModal(){
 const fondo = document.createElement("div");
-    fondo.classList.add("modal")
+    fondo.classList.add("modal");
     const boton = document.createElement("p");
-    boton.classList.add("but-modal")
+    boton.classList.add("but-modal");
     fondo.appendChild(boton);
-
-rules.addEventListener("click", (e)=>{
-    crearModal()
-})
+    }
