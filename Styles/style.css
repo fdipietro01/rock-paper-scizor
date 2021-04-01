@@ -201,19 +201,20 @@ footer {
 }
 
 .rules {
-  border: 2px solid hsl(216, 9%, 79%);
   border-radius: 8px;
   font-size: 16px;
   font-weight: 600;
-  color: hsl(213, 20%, 89%);
   padding: 11px 38px;
   letter-spacing: 2px;
   margin-bottom: 70px;
+  color: hsl(229, 25%, 31%);
+  background-color: hsl(213, 20%, 89%);
 }
 
 .rules:hover {
-  color: hsl(229, 25%, 31%);
-  background-color: hsl(213, 20%, 89%);
+  color: hsl(213, 20%, 89%);
+  border: 2px solid hsl(216, 9%, 79%);
+  background-color: hsl(229, 25%, 31%);
   cursor: pointer;
 }
 
@@ -363,7 +364,7 @@ font-size: 16px;
   margin:10px;
   font-size: 30px;
   color: white;
-  background-color: hsl(231, 46%, 14%);
+  background-color: hsl(229, 25%, 31%);
   border-radius: 5px;
 }
 
