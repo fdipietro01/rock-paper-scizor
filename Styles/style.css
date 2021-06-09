@@ -15,7 +15,7 @@
   background-repeat: no-repeat;
   background-size: contain;
   overflow: hidden;
-  height: 810px;
+  height: 100vh;
 }
 .header {
   margin: 35px 15px;
