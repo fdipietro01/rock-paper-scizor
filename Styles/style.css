@@ -361,3 +361,15 @@ font-size: 16px;
   background-color: hsl(231, 46%, 14%);
   border-radius: 5px;
 }
+
+@media (min-width: 640px) {
+  #carteles {
+    order: 2;
+    margin-top: 60px;
+
+  }
+
+  #cont2{
+    order:3;
+  }
+}
